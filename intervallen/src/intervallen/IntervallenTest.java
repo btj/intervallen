@@ -8,16 +8,14 @@ class IntervallenTest {
 	
 	@Test
 	void test() { // klantmodule van Interval
-		Interval meting1 = Interval.maakInterval(49, 51);
+		Interval meting1 = new Interval(49, 51);
 		
-		Interval meting2 = Interval.maakInterval(16, 20);
+		Interval meting2 = new Interval(16, 20);
 		
-		Interval totaleLengte = Interval.telOp(meting1, meting2);
+		Interval totaleLengte = meting1.telOp(meting2);
 		
-		assert Interval.getOndergrens(totaleLengte) == 65;
-		assert Interval.getBovengrens(totaleLengte) == 71;
-		
-		assert Interval.getOndergrens(totaleLengte) == 65;
+		assert totaleLengte.getOndergrens() == 65;
+		assert totaleLengte.getBovengrens() == 71;
 	}
 
 }
