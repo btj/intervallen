@@ -16,6 +16,10 @@ class IntervallenTest {
 		
 		assert totaleLengte.getOndergrens() == 65;
 		assert totaleLengte.getBovengrens() == 71;
+		
+		totaleLengte.setOndergrens(71);
+		assert totaleLengte.getOndergrens() == 71;
+		assert totaleLengte.getBovengrens() == 71;
 	}
 
 }

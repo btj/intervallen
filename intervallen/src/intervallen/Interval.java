@@ -22,10 +22,10 @@ class Interval {
 	// abstracte toestandsruimte =
 	// verzameling van mogelijke abstracte toestanden
 	int getOndergrens() { // instantiemethode
-		return this.ondergrens;
+		return ondergrens;
 	}
 	int getBovengrens() {
-		return this.ondergrens + this.lengte;
+		return ondergrens + lengte;
 	}
 
 	/**
@@ -37,7 +37,20 @@ class Interval {
 	 */
 	Interval(int ondergrens, int bovengrens) {
 		this.ondergrens = ondergrens;
-		this.lengte = bovengrens - ondergrens;
+		lengte = bovengrens - ondergrens;
+	}
+	
+	/**
+	 * Sets this instance's ondergrens to the given ondergrens.
+	 * 
+	 * @pre | ondergrens <= getBovengrens()
+	 * @mutates | this
+	 * @post | getOndergrens() == ondergrens
+	 * @post | getBovengrens() == old(getBovengrens())
+	 */
+	void setOndergrens(int ondergrens) {
+		lengte = this.ondergrens + lengte - ondergrens;
+		this.ondergrens = ondergrens;
 	}
 
 	/**
